@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 
-namespace QuanLyCongViec.Models
+namespace QuanLyCongViec.Models.Core
 {
     [Table("Users")]
     public class User : IdentityUser<Guid>
@@ -10,10 +10,10 @@ namespace QuanLyCongViec.Models
         [Required]
         public DateTime created_at { set; get; } = DateTime.UtcNow;
 
-        public DateTime? updated_at { set; get; }
+        public DateTime updated_at { set; get; } = DateTime.UtcNow;
 
         [Required]
-        public bool is_active { set; get; } = false;    
+        public bool is_active { set; get; } = false;
 
         public string? information { set; get; }
 
@@ -21,5 +21,5 @@ namespace QuanLyCongViec.Models
 
         public string? social_links { set; get; }
     }
-    
+
 }

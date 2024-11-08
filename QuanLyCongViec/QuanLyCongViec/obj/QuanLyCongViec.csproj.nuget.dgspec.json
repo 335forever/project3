@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\QuanLyCongViec.csproj": {}
+    "C:\\Users\\ducqu\\OneDrive\\Desktop\\project3\\QuanLyCongViec\\QuanLyCongViec\\QuanLyCongViec.csproj": {}
   },
   "projects": {
-    "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\QuanLyCongViec.csproj": {
+    "C:\\Users\\ducqu\\OneDrive\\Desktop\\project3\\QuanLyCongViec\\QuanLyCongViec\\QuanLyCongViec.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\QuanLyCongViec.csproj",
+        "projectUniqueName": "C:\\Users\\ducqu\\OneDrive\\Desktop\\project3\\QuanLyCongViec\\QuanLyCongViec\\QuanLyCongViec.csproj",
         "projectName": "QuanLyCongViec",
-        "projectPath": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\QuanLyCongViec.csproj",
-        "packagesPath": "C:\\Users\\THIS PC\\.nuget\\packages\\",
-        "outputPath": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\obj\\",
+        "projectPath": "C:\\Users\\ducqu\\OneDrive\\Desktop\\project3\\QuanLyCongViec\\QuanLyCongViec\\QuanLyCongViec.csproj",
+        "packagesPath": "C:\\Users\\ducqu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ducqu\\OneDrive\\Desktop\\project3\\QuanLyCongViec\\QuanLyCongViec\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\THIS PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ducqu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -118,7 +118,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

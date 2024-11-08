@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace QuanLyCongViec.Models
+namespace QuanLyCongViec.Models.Core
 {
     [Table("Orders")]
     public class Order
@@ -19,7 +19,7 @@ namespace QuanLyCongViec.Models
         [Required]
         public float price { set; get; }
 
-        public Guid saler_id {  set; get; }
+        public Guid saler_id { set; get; }
         [ForeignKey("saler_id")]
         public User Saler { get; set; }
 
@@ -27,7 +27,7 @@ namespace QuanLyCongViec.Models
         [ForeignKey("designer_id")]
         public User Designer { get; set; }
 
-        public Guid producer_id {  set; get; }
+        public Guid producer_id { set; get; }
         [ForeignKey("producer_id")]
         public User Producer { get; set; }
 

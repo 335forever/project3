@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace QuanLyCongViec.Models
+namespace QuanLyCongViec.Models.Core
 {
     [Table("Roles")]
     public class Role : IdentityRole<Guid>

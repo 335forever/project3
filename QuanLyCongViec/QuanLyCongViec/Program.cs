@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using QuanLyCongViec.Models;
+using QuanLyCongViec.Models.Core;
 using System.Text;
+using QuanLyCongViec.SeedData;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("QLCV_DB");
@@ -48,7 +50,16 @@ builder.Services.AddCors(options =>
                           .AllowAnyHeader());
 });
 
+builder.Logging.AddConsole();
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<Role>>();
+    await SeedData.Initialize(scope.ServiceProvider, userManager, roleManager);
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -60,6 +71,7 @@ if (app.Environment.IsDevelopment())
 // Use CORS policy
 app.UseCors("AllowAllOrigins");
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

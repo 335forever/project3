@@ -12,8 +12,8 @@ using QuanLyCongViec.Models;
 namespace QuanLyCongViec.Migrations
 {
     [DbContext(typeof(QLCV_DBCONTEXT))]
-    [Migration("20241110100516_Init")]
-    partial class Init
+    [Migration("20241020142954_seed-roles-data")]
+    partial class seedrolesdata
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -128,73 +128,74 @@ namespace QuanLyCongViec.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("QuanLyCongViec.Models.Core.Order", b =>
+            modelBuilder.Entity("QuanLyCongViec.Models.Order", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("order_id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime>("created_at")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("description")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid?>("DesignerId")
+                    b.Property<Guid>("designer_id")
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("EstimatedAt")
+                    b.Property<DateTime>("estimated_at")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<float>("Price")
+                    b.Property<Guid>("manager_id")
+                        .HasColumnType("uuid");
+
+                    b.Property<float>("price")
                         .HasColumnType("real");
 
-                    b.Property<Guid?>("ProducerId")
+                    b.Property<Guid>("producer_id")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid?>("SalerId")
+                    b.Property<Guid>("saler_id")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Status")
+                    b.Property<string>("status")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime>("updated_at")
                         .HasColumnType("timestamp with time zone");
 
-                    b.HasKey("Id");
+                    b.HasKey("order_id");
 
-                    b.HasIndex("DesignerId");
+                    b.HasIndex("designer_id");
 
-                    b.HasIndex("ProducerId");
+                    b.HasIndex("manager_id");
 
-                    b.HasIndex("SalerId");
+                    b.HasIndex("producer_id");
+
+                    b.HasIndex("saler_id");
 
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("QuanLyCongViec.Models.Core.Resource", b =>
+            modelBuilder.Entity("QuanLyCongViec.Models.Resource", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("resource_id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("resource_name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
-                    b.HasKey("Id");
+                    b.HasKey("resource_id");
 
                     b.ToTable("Resources");
                 });
 
-            modelBuilder.Entity("QuanLyCongViec.Models.Core.Role", b =>
+            modelBuilder.Entity("QuanLyCongViec.Models.Role", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -221,25 +222,25 @@ namespace QuanLyCongViec.Migrations
                     b.ToTable("AspNetRoles", (string)null);
                 });
 
-            modelBuilder.Entity("QuanLyCongViec.Models.Core.Role_Permission", b =>
+            modelBuilder.Entity("QuanLyCongViec.Models.Role_Permission", b =>
                 {
-                    b.Property<Guid>("RoleId")
+                    b.Property<Guid>("role_id")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("ResourceId")
+                    b.Property<Guid>("resource_id")
                         .HasColumnType("uuid");
 
-                    b.Property<int>("Permission")
+                    b.Property<int>("permission")
                         .HasColumnType("integer");
 
-                    b.HasKey("RoleId", "ResourceId");
+                    b.HasKey("role_id", "resource_id");
 
-                    b.HasIndex("ResourceId");
+                    b.HasIndex("resource_id");
 
                     b.ToTable("Role_Permission");
                 });
 
-            modelBuilder.Entity("QuanLyCongViec.Models.Core.User", b =>
+            modelBuilder.Entity("QuanLyCongViec.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -252,20 +253,11 @@ namespace QuanLyCongViec.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("Information")
-                        .HasColumnType("text");
-
-                    b.Property<bool>("IsActived")
                         .HasColumnType("boolean");
 
                     b.Property<bool>("LockoutEnabled")
@@ -291,24 +283,33 @@ namespace QuanLyCongViec.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("ProfilePictureLink")
-                        .HasColumnType("text");
-
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("text");
-
-                    b.Property<string>("SocialLinks")
                         .HasColumnType("text");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("boolean");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
-
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
+
+                    b.Property<DateTime>("created_at")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("information")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("is_active")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("profile_picture")
+                        .HasColumnType("text");
+
+                    b.Property<string>("social_links")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("updated_at")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
@@ -324,7 +325,7 @@ namespace QuanLyCongViec.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
-                    b.HasOne("QuanLyCongViec.Models.Core.Role", null)
+                    b.HasOne("QuanLyCongViec.Models.Role", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -333,7 +334,7 @@ namespace QuanLyCongViec.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
                 {
-                    b.HasOne("QuanLyCongViec.Models.Core.User", null)
+                    b.HasOne("QuanLyCongViec.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -342,7 +343,7 @@ namespace QuanLyCongViec.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
                 {
-                    b.HasOne("QuanLyCongViec.Models.Core.User", null)
+                    b.HasOne("QuanLyCongViec.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -351,13 +352,13 @@ namespace QuanLyCongViec.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
                 {
-                    b.HasOne("QuanLyCongViec.Models.Core.Role", null)
+                    b.HasOne("QuanLyCongViec.Models.Role", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("QuanLyCongViec.Models.Core.User", null)
+                    b.HasOne("QuanLyCongViec.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -366,45 +367,59 @@ namespace QuanLyCongViec.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
                 {
-                    b.HasOne("QuanLyCongViec.Models.Core.User", null)
+                    b.HasOne("QuanLyCongViec.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("QuanLyCongViec.Models.Core.Order", b =>
+            modelBuilder.Entity("QuanLyCongViec.Models.Order", b =>
                 {
-                    b.HasOne("QuanLyCongViec.Models.Core.User", "Designer")
+                    b.HasOne("QuanLyCongViec.Models.User", "Designer")
                         .WithMany()
-                        .HasForeignKey("DesignerId");
+                        .HasForeignKey("designer_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("QuanLyCongViec.Models.Core.User", "Producer")
+                    b.HasOne("QuanLyCongViec.Models.User", "Manager")
                         .WithMany()
-                        .HasForeignKey("ProducerId");
+                        .HasForeignKey("manager_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("QuanLyCongViec.Models.Core.User", "Saler")
+                    b.HasOne("QuanLyCongViec.Models.User", "Producer")
                         .WithMany()
-                        .HasForeignKey("SalerId");
+                        .HasForeignKey("producer_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("QuanLyCongViec.Models.User", "Saler")
+                        .WithMany()
+                        .HasForeignKey("saler_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Designer");
+
+                    b.Navigation("Manager");
 
                     b.Navigation("Producer");
 
                     b.Navigation("Saler");
                 });
 
-            modelBuilder.Entity("QuanLyCongViec.Models.Core.Role_Permission", b =>
+            modelBuilder.Entity("QuanLyCongViec.Models.Role_Permission", b =>
                 {
-                    b.HasOne("QuanLyCongViec.Models.Core.Resource", "Resource")
+                    b.HasOne("QuanLyCongViec.Models.Resource", "Resource")
                         .WithMany("Role_Permissions")
-                        .HasForeignKey("ResourceId")
+                        .HasForeignKey("resource_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("QuanLyCongViec.Models.Core.Role", "Role")
+                    b.HasOne("QuanLyCongViec.Models.Role", "Role")
                         .WithMany("Role_Permissions")
-                        .HasForeignKey("RoleId")
+                        .HasForeignKey("role_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -413,12 +428,12 @@ namespace QuanLyCongViec.Migrations
                     b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("QuanLyCongViec.Models.Core.Resource", b =>
+            modelBuilder.Entity("QuanLyCongViec.Models.Resource", b =>
                 {
                     b.Navigation("Role_Permissions");
                 });
 
-            modelBuilder.Entity("QuanLyCongViec.Models.Core.Role", b =>
+            modelBuilder.Entity("QuanLyCongViec.Models.Role", b =>
                 {
                     b.Navigation("Role_Permissions");
                 });

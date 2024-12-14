@@ -184,9 +184,7 @@ namespace QuanLyCongViec.Migrations
                     Description = table.Column<string>(type: "text", nullable: false),
                     EstimatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Price = table.Column<float>(type: "real", nullable: false),
-                    SalerId = table.Column<Guid>(type: "uuid", nullable: true),
-                    DesignerId = table.Column<Guid>(type: "uuid", nullable: true),
-                    ProducerId = table.Column<Guid>(type: "uuid", nullable: true),
+                    CreatorId = table.Column<Guid>(type: "uuid", nullable: false),
                     Status = table.Column<string>(type: "text", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
@@ -195,20 +193,11 @@ namespace QuanLyCongViec.Migrations
                 {
                     table.PrimaryKey("PK_Orders", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Orders_AspNetUsers_DesignerId",
-                        column: x => x.DesignerId,
+                        name: "FK_Orders_AspNetUsers_CreatorId",
+                        column: x => x.CreatorId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Orders_AspNetUsers_ProducerId",
-                        column: x => x.ProducerId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Orders_AspNetUsers_SalerId",
-                        column: x => x.SalerId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -232,6 +221,30 @@ namespace QuanLyCongViec.Migrations
                         name: "FK_Role_Permission_Resources_ResourceId",
                         column: x => x.ResourceId,
                         principalTable: "Resources",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Order_Permission",
+                columns: table => new
+                {
+                    OrderId = table.Column<Guid>(type: "uuid", nullable: false),
+                    UserId = table.Column<Guid>(type: "uuid", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Order_Permission", x => new { x.OrderId, x.UserId });
+                    table.ForeignKey(
+                        name: "FK_Order_Permission_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Order_Permission_Orders_OrderId",
+                        column: x => x.OrderId,
+                        principalTable: "Orders",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -274,19 +287,14 @@ namespace QuanLyCongViec.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_DesignerId",
-                table: "Orders",
-                column: "DesignerId");
+                name: "IX_Order_Permission_UserId",
+                table: "Order_Permission",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_ProducerId",
+                name: "IX_Orders_CreatorId",
                 table: "Orders",
-                column: "ProducerId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Orders_SalerId",
-                table: "Orders",
-                column: "SalerId");
+                column: "CreatorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Role_Permission_ResourceId",
@@ -313,19 +321,22 @@ namespace QuanLyCongViec.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Orders");
+                name: "Order_Permission");
 
             migrationBuilder.DropTable(
                 name: "Role_Permission");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "Resources");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
         }
     }
 }

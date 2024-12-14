@@ -1,14 +1,27 @@
-import './assets/main.css'
+import "./assets/main.css";
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import { createApp } from "vue";
+import { createPinia } from "pinia";
 
-import App from './App.vue'
-import router from './router'
+import App from "./App.vue";
+import router from "./router";
+import { createVuetify } from "vuetify";
+import "vuetify/styles";
+import "@mdi/font/css/materialdesignicons.css";
+import piniaPersist from "pinia-plugin-persistedstate";
 
-const app = createApp(App)
+const vuetify = createVuetify({
+    theme: {
+        defaultTheme: "light",
+    },
+});
 
-app.use(createPinia())
-app.use(router)
+const pinia = createPinia();
+pinia.use(piniaPersist);
 
-app.mount('#app')
+const app = createApp(App);
+app.use(vuetify);
+app.use(pinia);
+app.use(router);
+
+app.mount("#app");

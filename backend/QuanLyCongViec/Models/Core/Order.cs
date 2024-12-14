@@ -23,17 +23,9 @@ namespace QuanLyCongViec.Models.Core
         [Required]
         public float? Price { set; get; }
 
-        public Guid? SalerId { set; get; }
-        [ForeignKey("SalerId")]
-        public User? Saler { get; set; } 
-
-        public Guid? DesignerId { set; get; }
-        [ForeignKey("DesignerId")]
-        public User? Designer { get; set; }
-
-        public Guid? ProducerId { set; get; }
-        [ForeignKey("ProducerId")]
-        public User? Producer { get; set; }
+        public Guid CreatorId { set; get; }
+        [ForeignKey("CreatorId")]
+        public User Creator { get; set; } 
 
         [Required]
         public string Status { set; get; } = "NEW";
@@ -42,5 +34,7 @@ namespace QuanLyCongViec.Models.Core
         public DateTime CreatedAt { set; get; } = DateTime.UtcNow;
 
         public DateTime UpdatedAt { set; get; } = DateTime.UtcNow;
+
+        public ICollection<Order_Permission>? Order_Permissions { set; get; }
     }
 }

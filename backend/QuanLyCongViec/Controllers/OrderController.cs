@@ -19,12 +19,12 @@ public class OrderController : ControllerBase
     }
 
     [HttpPost("")]
-    [Authorize(Roles = "Saler")]
+    [Authorize(Roles = "Admin,Saler")]
     public async Task<IActionResult> CreateOrder([FromBody] CreateOrderDTO model)
     {
         if (ModelState.IsValid)
         {
-            var salerId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var creatorId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
             
             var order = new Order 
             { 
@@ -32,7 +32,7 @@ public class OrderController : ControllerBase
                 Description = model.Description,
                 EstimatedAt = model.EstimatedAt,
                 Price = model.Price,
-                SalerId = Guid.Parse(salerId),
+                CreatorId = Guid.Parse(creatorId),
             };
 
             _dbContext.Orders.Add(order);

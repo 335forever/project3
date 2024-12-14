@@ -11,6 +11,7 @@ namespace QuanLyCongViec.Models
         public DbSet<Resource> Resources { set; get; }
         public DbSet<Role_Permission> Roles_Permission { set; get; }
         public DbSet<Order> Orders { set; get; }
+        public DbSet<Order_Permission> Order_Permission { set; get; }
 
         private readonly IConfiguration _configuration;
 
@@ -18,7 +19,6 @@ namespace QuanLyCongViec.Models
         {
             _configuration = configuration;
         }
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -36,6 +36,19 @@ namespace QuanLyCongViec.Models
                 .HasOne(rp => rp.Resource)
                 .WithMany(resource => resource.Role_Permissions)
                 .HasForeignKey(rp => rp.ResourceId);
+
+            modelBuilder.Entity<Order_Permission>()
+                .HasKey(op => new {op.OrderId, op.UserId});
+
+            modelBuilder.Entity<Order_Permission>()
+                .HasOne(op => op.Order)
+                .WithMany(order => order.Order_Permissions)
+                .HasForeignKey(op => op.OrderId);
+
+            modelBuilder.Entity<Order_Permission>()
+                .HasOne(op => op.User)
+                .WithMany(user => user.Order_Permissions)
+                .HasForeignKey(op => op.UserId);
         }
     }
 }

@@ -134,24 +134,20 @@ namespace QuanLyCongViec.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<Guid>("CreatorId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid?>("DesignerId")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("EstimatedAt")
+                    b.Property<DateTime?>("EstimatedAt")
+                        .IsRequired()
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<float>("Price")
+                    b.Property<float?>("Price")
+                        .IsRequired()
                         .HasColumnType("real");
-
-                    b.Property<Guid?>("ProducerId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid?>("SalerId")
-                        .HasColumnType("uuid");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -166,13 +162,24 @@ namespace QuanLyCongViec.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DesignerId");
-
-                    b.HasIndex("ProducerId");
-
-                    b.HasIndex("SalerId");
+                    b.HasIndex("CreatorId");
 
                     b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("QuanLyCongViec.Models.Core.Order_Permission", b =>
+                {
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("OrderId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Order_Permission");
                 });
 
             modelBuilder.Entity("QuanLyCongViec.Models.Core.Resource", b =>
@@ -372,23 +379,32 @@ namespace QuanLyCongViec.Migrations
 
             modelBuilder.Entity("QuanLyCongViec.Models.Core.Order", b =>
                 {
-                    b.HasOne("QuanLyCongViec.Models.Core.User", "Designer")
+                    b.HasOne("QuanLyCongViec.Models.Core.User", "Creator")
                         .WithMany()
-                        .HasForeignKey("DesignerId");
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("QuanLyCongViec.Models.Core.User", "Producer")
-                        .WithMany()
-                        .HasForeignKey("ProducerId");
+                    b.Navigation("Creator");
+                });
 
-                    b.HasOne("QuanLyCongViec.Models.Core.User", "Saler")
-                        .WithMany()
-                        .HasForeignKey("SalerId");
+            modelBuilder.Entity("QuanLyCongViec.Models.Core.Order_Permission", b =>
+                {
+                    b.HasOne("QuanLyCongViec.Models.Core.Order", "Order")
+                        .WithMany("Order_Permissions")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Designer");
+                    b.HasOne("QuanLyCongViec.Models.Core.User", "User")
+                        .WithMany("Order_Permissions")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Producer");
+                    b.Navigation("Order");
 
-                    b.Navigation("Saler");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("QuanLyCongViec.Models.Core.Role_Permission", b =>
@@ -410,6 +426,11 @@ namespace QuanLyCongViec.Migrations
                     b.Navigation("Role");
                 });
 
+            modelBuilder.Entity("QuanLyCongViec.Models.Core.Order", b =>
+                {
+                    b.Navigation("Order_Permissions");
+                });
+
             modelBuilder.Entity("QuanLyCongViec.Models.Core.Resource", b =>
                 {
                     b.Navigation("Role_Permissions");
@@ -418,6 +439,11 @@ namespace QuanLyCongViec.Migrations
             modelBuilder.Entity("QuanLyCongViec.Models.Core.Role", b =>
                 {
                     b.Navigation("Role_Permissions");
+                });
+
+            modelBuilder.Entity("QuanLyCongViec.Models.Core.User", b =>
+                {
+                    b.Navigation("Order_Permissions");
                 });
 #pragma warning restore 612, 618
         }

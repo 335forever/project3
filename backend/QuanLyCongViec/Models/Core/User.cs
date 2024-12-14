@@ -20,6 +20,7 @@ namespace QuanLyCongViec.Models.Core
         public string? ProfilePictureLink { set; get; }
 
         public string? SocialLinks { set; get; }
-    }
 
+        public ICollection<Order_Permission>? Order_Permissions { set; get; }
+    }
 }

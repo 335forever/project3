@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "nKAUswmP+zeOExIhyJ3nz7QT/Dn2UnTomB16ZMxnMPc=",
+  "Hash": "ZAbyzKE5THOvTqzwz6mUH9dAKuHUcswottlkTZpQl/I=",
   "Source": "QuanLyCongViec",
   "BasePath": "_content/QuanLyCongViec",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

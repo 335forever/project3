@@ -1,194 +1,118 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\",
+  "WorkspaceRootPath": "C:\\Users\\ADM\\Desktop\\prj3\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|d:\\onedrive\\desktop\\project iii\\quanlycongviec\\quanlycongviec\\migrations\\20241020142954_seed-roles-data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|solutionrelative:quanlycongviec\\migrations\\20241020142954_seed-roles-data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|c:\\users\\adm\\desktop\\prj3\\backend\\quanlycongviec\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|solutionrelative:quanlycongviec\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|d:\\onedrive\\desktop\\project iii\\quanlycongviec\\quanlycongviec\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|solutionrelative:quanlycongviec\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|c:\\users\\adm\\desktop\\prj3\\backend\\quanlycongviec\\models\\core\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|solutionrelative:quanlycongviec\\models\\core\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|d:\\onedrive\\desktop\\project iii\\quanlycongviec\\quanlycongviec\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|solutionrelative:quanlycongviec\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|c:\\users\\adm\\desktop\\prj3\\backend\\quanlycongviec\\models\\dto\\authdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|solutionrelative:quanlycongviec\\models\\dto\\authdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|d:\\onedrive\\desktop\\project iii\\quanlycongviec\\quanlycongviec\\models\\role_permission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|solutionrelative:quanlycongviec\\models\\role_permission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|d:\\onedrive\\desktop\\project iii\\quanlycongviec\\quanlycongviec\\models\\resource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|solutionrelative:quanlycongviec\\models\\resource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|d:\\onedrive\\desktop\\project iii\\quanlycongviec\\quanlycongviec\\models\\qlcv_dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|solutionrelative:quanlycongviec\\models\\qlcv_dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|d:\\onedrive\\desktop\\project iii\\quanlycongviec\\quanlycongviec\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|solutionrelative:quanlycongviec\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|d:\\onedrive\\desktop\\project iii\\quanlycongviec\\quanlycongviec\\seeddata\\roleseed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|solutionrelative:quanlycongviec\\seeddata\\roleseed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|d:\\onedrive\\desktop\\project iii\\quanlycongviec\\quanlycongviec\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|c:\\users\\adm\\desktop\\prj3\\backend\\quanlycongviec\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|solutionrelative:quanlycongviec\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|d:\\onedrive\\desktop\\project iii\\quanlycongviec\\quanlycongviec\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|solutionrelative:quanlycongviec\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|c:\\users\\adm\\desktop\\prj3\\backend\\quanlycongviec\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|solutionrelative:quanlycongviec\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|d:\\onedrive\\desktop\\project iii\\quanlycongviec\\quanlycongviec\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|solutionrelative:quanlycongviec\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|c:\\users\\adm\\desktop\\prj3\\backend\\quanlycongviec\\seeddata\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4758657A-C733-4EA0-BCB8-540C8A4324CD}|QuanLyCongViec\\QuanLyCongViec.csproj|solutionrelative:quanlycongviec\\seeddata\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 0,
+      "Orientation": 1,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
+          "DockedHeight": 200,
           "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "QLCV_DBCONTEXT.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\Models\\QLCV_DBCONTEXT.cs",
-              "RelativeDocumentMoniker": "QuanLyCongViec\\Models\\QLCV_DBCONTEXT.cs",
-              "ToolTip": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\Models\\QLCV_DBCONTEXT.cs",
-              "RelativeToolTip": "QuanLyCongViec\\Models\\QLCV_DBCONTEXT.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T05:41:43.948Z",
-              "IsPinned": true
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20241020142954_seed-roles-data.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\Migrations\\20241020142954_seed-roles-data.cs",
-              "RelativeDocumentMoniker": "QuanLyCongViec\\Migrations\\20241020142954_seed-roles-data.cs",
-              "ToolTip": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\Migrations\\20241020142954_seed-roles-data.cs",
-              "RelativeToolTip": "QuanLyCongViec\\Migrations\\20241020142954_seed-roles-data.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAATAAAAAAAAAA==",
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Users\\ADM\\Desktop\\prj3\\backend\\QuanLyCongViec\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "QuanLyCongViec\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Users\\ADM\\Desktop\\prj3\\backend\\QuanLyCongViec\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "QuanLyCongViec\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAcwBIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T14:29:58.771Z",
+              "WhenOpened": "2024-11-10T08:42:17.281Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Resource.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\Models\\Resource.cs",
-              "RelativeDocumentMoniker": "QuanLyCongViec\\Models\\Resource.cs",
-              "ToolTip": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\Models\\Resource.cs",
-              "RelativeToolTip": "QuanLyCongViec\\Models\\Resource.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T14:19:57.199Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "RoleSeed.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\SeedData\\RoleSeed.cs",
-              "RelativeDocumentMoniker": "QuanLyCongViec\\SeedData\\RoleSeed.cs",
-              "ToolTip": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\SeedData\\RoleSeed.cs",
-              "RelativeToolTip": "QuanLyCongViec\\SeedData\\RoleSeed.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T14:17:56.701Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Order.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\Models\\Order.cs",
-              "RelativeDocumentMoniker": "QuanLyCongViec\\Models\\Order.cs",
-              "ToolTip": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\Models\\Order.cs",
-              "RelativeToolTip": "QuanLyCongViec\\Models\\Order.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAwwBYAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T14:04:40.276Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Role_Permission.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\Models\\Role_Permission.cs",
-              "RelativeDocumentMoniker": "QuanLyCongViec\\Models\\Role_Permission.cs",
-              "ToolTip": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\Models\\Role_Permission.cs",
-              "RelativeToolTip": "QuanLyCongViec\\Models\\Role_Permission.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T14:03:03.056Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Role.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\Models\\Role.cs",
-              "RelativeDocumentMoniker": "QuanLyCongViec\\Models\\Role.cs",
-              "ToolTip": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\Models\\Role.cs",
-              "RelativeToolTip": "QuanLyCongViec\\Models\\Role.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T14:02:22.401Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "User.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\Models\\User.cs",
-              "RelativeDocumentMoniker": "QuanLyCongViec\\Models\\User.cs",
-              "ToolTip": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\Models\\User.cs",
-              "RelativeToolTip": "QuanLyCongViec\\Models\\User.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAAFAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\ADM\\Desktop\\prj3\\backend\\QuanLyCongViec\\Models\\Core\\User.cs",
+              "RelativeDocumentMoniker": "QuanLyCongViec\\Models\\Core\\User.cs",
+              "ToolTip": "C:\\Users\\ADM\\Desktop\\prj3\\backend\\QuanLyCongViec\\Models\\Core\\User.cs",
+              "RelativeToolTip": "QuanLyCongViec\\Models\\Core\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T13:51:56.734Z"
+              "WhenOpened": "2024-12-14T10:38:03.7Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
+              "Title": "AuthDTO.cs",
+              "DocumentMoniker": "C:\\Users\\ADM\\Desktop\\prj3\\backend\\QuanLyCongViec\\Models\\DTO\\AuthDTO.cs",
+              "RelativeDocumentMoniker": "QuanLyCongViec\\Models\\DTO\\AuthDTO.cs",
+              "ToolTip": "C:\\Users\\ADM\\Desktop\\prj3\\backend\\QuanLyCongViec\\Models\\DTO\\AuthDTO.cs",
+              "RelativeToolTip": "QuanLyCongViec\\Models\\DTO\\AuthDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T10:31:02.454Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\Controllers\\AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\ADM\\Desktop\\prj3\\backend\\QuanLyCongViec\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "QuanLyCongViec\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\ADM\\Desktop\\prj3\\backend\\QuanLyCongViec\\Controllers\\AuthController.cs",
               "RelativeToolTip": "QuanLyCongViec\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAArwC0AAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T13:49:56.44Z"
+              "WhenOpened": "2024-11-08T06:56:27.457Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\appsettings.json",
-              "RelativeDocumentMoniker": "QuanLyCongViec\\appsettings.json",
-              "ToolTip": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\appsettings.json",
-              "RelativeToolTip": "QuanLyCongViec\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-20T13:43:39.476Z"
+              "DocumentIndex": 4,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\ADM\\Desktop\\prj3\\backend\\QuanLyCongViec\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "QuanLyCongViec\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\ADM\\Desktop\\prj3\\backend\\QuanLyCongViec\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "QuanLyCongViec\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T06:45:49.799Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\Program.cs",
-              "RelativeDocumentMoniker": "QuanLyCongViec\\Program.cs",
-              "ToolTip": "D:\\OneDrive\\Desktop\\Project III\\QuanLyCongViec\\QuanLyCongViec\\Program.cs",
-              "RelativeToolTip": "QuanLyCongViec\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "SeedData.cs",
+              "DocumentMoniker": "C:\\Users\\ADM\\Desktop\\prj3\\backend\\QuanLyCongViec\\SeedData\\SeedData.cs",
+              "RelativeDocumentMoniker": "QuanLyCongViec\\SeedData\\SeedData.cs",
+              "ToolTip": "C:\\Users\\ADM\\Desktop\\prj3\\backend\\QuanLyCongViec\\SeedData\\SeedData.cs",
+              "RelativeToolTip": "QuanLyCongViec\\SeedData\\SeedData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T13:36:27.962Z"
+              "WhenOpened": "2024-12-12T06:43:06.242Z"
             }
           ]
         }

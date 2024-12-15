@@ -29,7 +29,7 @@ namespace QuanLyCongViec.SeedData
             {
                 adminUser = new User
                 {
-                    UserName = "admin@domain.com",
+                    UserName = "admin",
                     Email = "admin@domain.com"
                 };
 

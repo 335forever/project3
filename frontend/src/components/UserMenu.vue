@@ -12,18 +12,14 @@ const authStore = useAuthStore();
     <v-icon size="large">{ mdi-account-circle }</v-icon>
     <v-menu activator="parent">
       <v-list>
-        <v-list-item class="list-item" @click="">
-          <v-list-item-content
-            style="display: flex; gap: 6px; align-items: center"
-            ><v-icon>{{}}</v-icon>{{
-          }}</v-list-item-content>
-        </v-list-item>
+        <v-list-item class="list-item" @click=""> </v-list-item>
         <v-divider></v-divider>
-        <v-list-item class="list-item" @click="authStore.logout">
-          <v-list-item-content
-            style="color: red; display: flex; gap: 6px; align-items: center"
-            ><v-icon>mdi-logout</v-icon>Log out</v-list-item-content
-          >
+        <v-list-item
+          class="list-item"
+          style="color: red"
+          @click="authStore.logout"
+        >
+          <v-icon start>mdi-logout</v-icon>Log out
         </v-list-item>
       </v-list>
     </v-menu>

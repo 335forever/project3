@@ -1,11 +1,14 @@
 <template>
-  <v-container>
-    <v-btn color="primary" @click="handleButtonClick">Show Alert</v-btn>
-  </v-container>
+    <v-container>
+        <v-btn color="primary" @click="handleButtonClick">Show Alert</v-btn>
+    </v-container>
 </template>
 
 <script lang="ts" setup>
-import { showAlert } from "@/services/alert";
+import { useAlert } from "@/composables/useAlert";
+
+const { showAlert } = useAlert();
+
 const handleButtonClick = () => showAlert("heelo", "success", 2000);
 </script>
 

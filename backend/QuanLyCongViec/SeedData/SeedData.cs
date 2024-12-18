@@ -24,7 +24,7 @@ namespace QuanLyCongViec.SeedData
                 }
             }
 
-            var adminUser = await userManager.FindByEmailAsync("admin@domain.com");
+            var adminUser = await userManager.FindByNameAsync("admin");
             if (adminUser == null)
             {
                 adminUser = new User

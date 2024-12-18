@@ -37,7 +37,7 @@
           <!-- Content for Accordion -->
           <v-expansion-panel-text>
             <v-list>
-              <v-list-item to="/users" link>
+              <v-list-item to="/usermanagement" link>
                 <v-icon start>mdi-account</v-icon>
                 Users
               </v-list-item>

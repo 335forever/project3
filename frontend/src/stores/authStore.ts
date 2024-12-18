@@ -3,6 +3,7 @@ import { jwtDecode } from "jwt-decode";
 import router from "@/router";
 import type { DecodedToken, User } from "@/type/auth";
 import { AuthService } from "@/services/authService";
+import type { TError, TResponse } from "@/type/common";
 
 interface AuthState {
     user: User | null;
@@ -57,10 +58,7 @@ export const useAuthStore = defineStore("auth", {
             username: string;
             email: string;
             password: string;
-        }): Promise<{
-            success: boolean;
-            message: string;
-        }> {
+        }): Promise<TResponse> {
             try {
                 await AuthService.signUp(credentials);
                 return {
@@ -73,10 +71,7 @@ export const useAuthStore = defineStore("auth", {
                     success: false,
                     message:
                         error.response?.data
-                            ?.map(
-                                (err: { code: string; description: string }) =>
-                                    err.description
-                            )
+                            ?.map((err: TError) => err.description)
                             .reduce((result: string, err: string) => {
                                 return result + "\n" + err;
                             }, "") ?? "Signup failed",

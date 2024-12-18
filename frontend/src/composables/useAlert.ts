@@ -1,11 +1,5 @@
+import type { AlertState } from "@/type/common";
 import { reactive } from "vue";
-
-interface AlertState {
-    message: string;
-    type: "success" | "error" | "info" | "warning";
-    duration: number;
-    visible: boolean;
-}
 
 // Reactive state cho thông báo
 const alertState = reactive<AlertState>({

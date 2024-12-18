@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using QuanLyCongViec.Models.Core;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.IdentityModel.Tokens;
 
 [ApiController]
 [Route("api/admin")]
@@ -20,6 +21,11 @@ public class AdminController : ControllerBase
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Grant(string uuid, string roleName)
     {
+        if (!Guid.TryParse(uuid, out var userGuid))
+        {
+            return BadRequest(new { message = "Invalid UUID format" });
+        }
+        
         var user = await _userManager.FindByIdAsync(uuid);
         if (user == null)
         {
@@ -33,9 +39,9 @@ public class AdminController : ControllerBase
         }
 
         var userRoles = await _userManager.GetRolesAsync(user);
-        if (userRoles.Contains(roleName))
+        if (userRoles.Any())
         {
-            return BadRequest(new { message = "User already has this role" });
+            return BadRequest(new { message = "User already has role" });
         }
 
         var result = await _userManager.AddToRoleAsync(user, roleName);

@@ -8,10 +8,10 @@ import MainLayout from "@/layouts/MainLayout.vue";
 
 import LoginPage from "../views/LoginPage.vue";
 import DashboardPage from "../views/DashboardPage.vue";
-import OrdersPage from "../views/OrderPage.vue";
 import NotFoundPage from "@/views/NotFoundPage.vue";
 import SettingsPage from "@/views/SettingsPage.vue";
 import UserManagementPage from "@/views/management/UserManagementPage.vue";
+import { Role } from "@/type/auth";
 
 const routes: Array<RouteRecordRaw> = [
     { path: "/login", name: "Login", component: LoginPage },
@@ -30,6 +30,7 @@ const routes: Array<RouteRecordRaw> = [
             {
                 path: "usermanagement",
                 name: "UserManagement",
+                meta: { requiresRole: Role.ADMIN },
                 component: UserManagementPage,
             },
             {
@@ -59,6 +60,12 @@ router.beforeEach(async (to, _from, next) => {
         const userFetched = await authStore.fetchUser();
         if (userFetched) {
             if (to.path === "/login") {
+                return next("/dashboard");
+            }
+            if (
+                to.meta.requiresRole &&
+                authStore.user?.role !== to.meta.requiresRole
+            ) {
                 return next("/dashboard");
             }
             next();

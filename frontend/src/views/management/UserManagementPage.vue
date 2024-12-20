@@ -40,8 +40,6 @@ const fetchAllRoles = async () => {
     ]);
 };
 
-
-
 onMounted(() => {
     fetchAllRoles();
 });
@@ -53,25 +51,32 @@ const modalBtn = ref(null);
     <div style="height: 100vh">
         <h1>
             Role Membership
-
             <v-btn ref="modalBtn" icon variant="text">
                 <v-badge :content="newUsers.length" class="badge">
                     <v-icon size="large">mdi-bell</v-icon></v-badge
                 >
             </v-btn>
-
             <NewUsersModal v-if="modalBtn" :btn="modalBtn" :users="newUsers" />
         </h1>
 
-        <div style="display: flex">
+        <div>
             <div v-if="loading">Loading...</div>
-            <div v-if="errorMessage" class="error-message">
+            <div v-else-if="errorMessage" class="error-message">
                 {{ errorMessage }}
             </div>
-
-            <UserTable title="Saler User" :users="salers" />
-            <UserTable title="Designer User" :users="designers" />
-            <UserTable title="Producer User" :users="producers" />
+            <v-container v-else style="display: flex">
+                <v-row>
+                    <v-col sm="12" md="6" lg="4"
+                        ><UserTable title="Saler User" :users="salers"
+                    /></v-col>
+                    <v-col sm="12" md="6" lg="4"
+                        ><UserTable title="Designer User" :users="designers"
+                    /></v-col>
+                    <v-col sm="12" md="6" lg="4"
+                        ><UserTable title="Producer User" :users="producers"
+                    /></v-col>
+                </v-row>
+            </v-container>
         </div>
     </div>
 </template>

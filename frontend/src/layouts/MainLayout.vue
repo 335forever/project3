@@ -8,7 +8,7 @@ import SideBar from "@/components/SideBar.vue";
         <v-main>
             <div style="display: flex">
                 <SideBar />
-                <div style="width: 100%">
+                <div style="width: 100%; overflow-y: auto">
                     <router-view style="padding: 10px; padding-top: 60px" />
                 </div>
             </div>

@@ -54,7 +54,14 @@
                 </v-expansion-panel>
             </v-expansion-panels>
         </v-list>
-        <p style="font-style: italic; text-align: center; margin-top: auto;">
+        <p
+            style="
+                font-style: italic;
+                text-align: center;
+                margin-top: auto;
+                margin-bottom: 10px;
+            "
+        >
             You are logged in as:
             <span style="font-weight: bold">{{ userRole }}</span>
         </p>

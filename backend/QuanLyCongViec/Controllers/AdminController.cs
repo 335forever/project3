@@ -57,7 +57,11 @@ public class AdminController : ControllerBase
     [Authorize(Roles = "Admin")]
     public async Task<ActionResult<List<User>>> GetRoleList(string? roleName)
     {
-        if (string.IsNullOrEmpty(roleName))
+        
+
+        if (roleName == "Admin") return BadRequest(new { message = "Admin information can't be retrieved" });
+
+        if (roleName == "Unassigned")
         {
             var allUsers = _userManager.Users.ToList();
             var usersWithoutRoles = new List<User>();
@@ -73,12 +77,13 @@ public class AdminController : ControllerBase
 
             return usersWithoutRoles;
         }
-        if (roleName == "Admin") return BadRequest(new { message = "Admin information can't be retrieved" });
+
         var role = await _roleManager.FindByNameAsync(roleName);
         if (role == null)
         {
             return BadRequest(new { message = $"'{roleName}' isn't a valid role name" });
         }
+
         var usersInRole = await _userManager.GetUsersInRoleAsync(roleName);
         return usersInRole.ToList();
     }

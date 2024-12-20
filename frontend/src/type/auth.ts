@@ -19,6 +19,7 @@ export enum Role {
     PRODUCER = "Producer",
     DESIGNER = "Designer",
     SALER = "Saler",
+    UNASSIGNED = "Unassigned",
 }
 
 export interface DecodedToken {

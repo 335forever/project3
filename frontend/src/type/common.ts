@@ -14,10 +14,6 @@ export type TResponse = {
     message: string;
 };
 
-export type TResponseUsers = TResponse & {
-    users: User[];
-};
-
 export type TError = {
     code: string;
     description: string;

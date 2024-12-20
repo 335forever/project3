@@ -2,12 +2,12 @@ import { defineStore } from "pinia";
 import { Role, type User } from "@/type/auth";
 import { RoleService } from "@/services/roleService";
 import type { GrantTarget } from "@/type/userManagement";
-import type { TError, TResponse, TResponseUsers } from "@/type/common";
+import type { TResponse } from "@/type/common";
 
 interface UserManagementState {
-    usersByRole: {
-        [key: string]: User[];
-    };
+    usersByRole: Record<string, User[]>;
+    loadingStates: Record<string, boolean>;
+    errorStates: Record<string, string | null>;
 }
 
 export const useUserManagementStore = defineStore("userManagement", {
@@ -16,52 +16,79 @@ export const useUserManagementStore = defineStore("userManagement", {
             [Role.SALER]: [],
             [Role.DESIGNER]: [],
             [Role.PRODUCER]: [],
-            unassigned: [],
+            [Role.UNASSIGNED]: [],
+        },
+        loadingStates: {
+            [Role.SALER]: false,
+            [Role.DESIGNER]: false,
+            [Role.PRODUCER]: false,
+            [Role.UNASSIGNED]: false,
+        },
+        errorStates: {
+            [Role.SALER]: null,
+            [Role.DESIGNER]: null,
+            [Role.PRODUCER]: null,
+            [Role.UNASSIGNED]: null,
         },
     }),
     actions: {
+        setLoading(role: Role, isLoading: boolean) {
+            this.loadingStates[role] = isLoading;
+        },
+        setError(role: Role, error: string | null) {
+            this.errorStates[role] = error;
+        },
+
         async grant({ id, roleName }: GrantTarget): Promise<TResponse> {
+            this.setLoading(roleName, true);
+            this.setError(roleName, null);
             try {
                 await RoleService.grant({ id, roleName });
-                await this.refreshRoleMembership(roleName);
-                return {
-                    success: true,
-                    message: "Grant successfully",
-                };
+                await Promise.all([
+                    this.refreshRoleMembership(roleName),
+                    this.refreshRoleMembership(Role.UNASSIGNED),
+                ]);
+                return { success: true, message: "Grant successfully" };
             } catch (error: any) {
-                return {
-                    success: false,
-                    message: error.response?.data.message ?? "Grant failed",
-                };
+                const errorMsg = error.response?.data.message || "Grant failed";
+                this.setError(roleName, errorMsg);
+                return { success: false, message: errorMsg };
+            } finally {
+                this.setLoading(roleName, false);
             }
         },
-        async getRoleMembership(
-            roleName: Role | null
-        ): Promise<TResponseUsers> {
+
+        async getRoleMembership(roleName: Role): Promise<void> {
+            this.setLoading(roleName, true);
+            this.setError(roleName, null);
+
             try {
                 const users = await RoleService.getRoleMembership(roleName);
-                if (roleName === Role.ADMIN)
-                    throw new Error("Role admin can't retrived");
-                const roleKey = roleName ?? "unassigned";
-                this.usersByRole[roleKey] = users;
-
-                return {
-                    success: true,
-                    message: "Get role membership successfully",
-                    users,
-                };
+                this.usersByRole[roleName] = users;
             } catch (error: any) {
-                return {
-                    success: false,
-                    message:
-                        error.response?.data.message ??
-                        "Get role membership failed",
-                    users: [],
-                };
+                const errorMsg =
+                    error.response?.data.message ||
+                    "Failed to fetch role membership";
+                this.setError(roleName, errorMsg);
+            } finally {
+                this.setLoading(roleName, false);
             }
         },
-        async refreshRoleMembership(roleName: Role | null) {
+
+        async refreshRoleMembership(roleName: Role): Promise<void> {
             await this.getRoleMembership(roleName);
+        },
+
+        async fetchAllRoles(): Promise<void> {
+            const roles = [
+                Role.SALER,
+                Role.DESIGNER,
+                Role.PRODUCER,
+                Role.UNASSIGNED,
+            ];
+            await Promise.all(
+                roles.map((role) => this.getRoleMembership(role))
+            );
         },
     },
 });

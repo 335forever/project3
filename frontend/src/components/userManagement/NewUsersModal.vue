@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { Role, type User } from "@/type/auth";
-import UserTable from "./UserTable.vue";
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useUserManagementStore } from "@/stores/userManagementStore";
 import { useAlert } from "@/composables/useAlert";
-const props = defineProps<{
+
+defineProps<{
     btn: any;
-    users: User[];
 }>();
+
 const selectedRoles = ref<(Role | null)[]>([]);
 const userManagementStore = useUserManagementStore();
 const { showAlert } = useAlert();
@@ -22,7 +22,9 @@ const handleGrant = async (id: string, roleName: Role | null) => {
 };
 
 onMounted(() => {
-    selectedRoles.value = Array(props.users.length).fill(null);
+    selectedRoles.value = Array(
+        userManagementStore.usersByRole[Role.UNASSIGNED].length
+    ).fill(null);
 });
 </script>
 <template>
@@ -43,12 +45,22 @@ onMounted(() => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-if="!users.length">
+                        <tr
+                            v-if="
+                                !userManagementStore.usersByRole[
+                                    Role.UNASSIGNED
+                                ].length
+                            "
+                        >
                             <td colspan="3" style="text-align: center">
                                 No data!
                             </td>
                         </tr>
-                        <tr v-for="(item, index) in users" :key="item.id">
+                        <tr
+                            v-for="(item, index) in userManagementStore
+                                .usersByRole[Role.UNASSIGNED]"
+                            :key="item.id"
+                        >
                             <td>{{ item.userName }}</td>
                             <td>{{ item.email }}</td>
                             <td>

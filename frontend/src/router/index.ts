@@ -57,26 +57,31 @@ router.beforeEach(async (to, _from, next) => {
     const token = localStorage.getItem("token");
 
     if (token) {
-        const userFetched = await authStore.fetchUser();
-        if (userFetched) {
-            if (to.path === "/login") {
-                return next("/dashboard");
+        // Chỉ gọi fetchUser nếu user chưa được tải
+        if (!authStore.user) {
+            const userFetched = await authStore.fetchUser();
+            if (!userFetched) {
+                localStorage.removeItem("token");
+                return next("/login");
             }
-            if (
-                to.meta.requiresRole &&
-                authStore.user?.role !== to.meta.requiresRole
-            ) {
-                return next("/dashboard");
-            }
-            next();
-        } else {
-            localStorage.removeItem("token");
-            next("/login");
         }
+
+        if (to.path === "/login") {
+            return next("/dashboard");
+        }
+
+        if (
+            to.meta.requiresRole &&
+            authStore.user?.role !== to.meta.requiresRole
+        ) {
+            return next("/dashboard");
+        }
+
+        return next();
     } else if (to.meta.requiresAuth && !authStore.isAuthenticated) {
-        next("/login");
+        return next("/login");
     } else {
-        next();
+        return next();
     }
 });
 

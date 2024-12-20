@@ -1,45 +1,83 @@
 <script setup lang="ts">
 import { useAlert } from "@/composables/useAlert";
 import { useUserManagementStore } from "@/stores/userManagementStore";
-import { Role } from "@/type/auth";
-import { ref } from "vue";
-
-const id = ref<string>("");
-const roleName = ref<Role>();
+import { Role, type User } from "@/type/auth";
+import { onMounted, ref, type Ref } from "vue";
+import UserTable from "@/components/userManagement/UserTable.vue";
+import NewUsersModal from "@/components/userManagement/NewUsersModal.vue";
 
 const userManagementStore = useUserManagementStore();
 const { showAlert } = useAlert();
 
-const handleGrant = async () => {
-    if (!id.value || !roleName.value) return;
-    const result = await userManagementStore.grant({
-        id: id.value,
-        roleName: roleName.value,
-    });
-    showAlert(result.message, result.success ? "success" : "error", 2000);
+const salers = ref<User[]>([]);
+const designers = ref<User[]>([]);
+const producers = ref<User[]>([]);
+const newUsers = ref<User[]>([]);
+
+const loading = ref(false);
+const errorMessage = ref<string | null>(null);
+
+const fetchRoleMembership = async (role: Role | null, target: Ref<User[]>) => {
+    loading.value = true;
+
+    const response = await userManagementStore.getRoleMembership(role);
+
+    if (response.success) {
+        target.value = response.users;
+    } else {
+        errorMessage.value = response.message;
+    }
+
+    loading.value = false;
 };
+
+const fetchAllRoles = async () => {
+    await Promise.all([
+        fetchRoleMembership(Role.SALER, salers),
+        fetchRoleMembership(Role.DESIGNER, designers),
+        fetchRoleMembership(Role.PRODUCER, producers),
+        fetchRoleMembership(null, newUsers),
+    ]);
+};
+
+
+
+onMounted(() => {
+    fetchAllRoles();
+});
+
+const modalBtn = ref(null);
 </script>
 
 <template>
-    <div>
-        <h1>Test Grant API</h1>
-        <div>
-            <label for="id">User ID:</label>
-            <input
-                id="id"
-                v-model="id"
-                type="text"
-                placeholder="Enter user ID"
-            />
+    <div style="height: 100vh">
+        <h1>
+            Role Membership
+
+            <v-btn ref="modalBtn" icon variant="text">
+                <v-badge :content="newUsers.length" class="badge">
+                    <v-icon size="large">mdi-bell</v-icon></v-badge
+                >
+            </v-btn>
+
+            <NewUsersModal v-if="modalBtn" :btn="modalBtn" :users="newUsers" />
+        </h1>
+
+        <div style="display: flex">
+            <div v-if="loading">Loading...</div>
+            <div v-if="errorMessage" class="error-message">
+                {{ errorMessage }}
+            </div>
+
+            <UserTable title="Saler User" :users="salers" />
+            <UserTable title="Designer User" :users="designers" />
+            <UserTable title="Producer User" :users="producers" />
         </div>
-        <div>
-            <label for="roleName">Role Name:</label>
-            <select id="roleName" v-model="roleName">
-                <option :value="Role.DESIGNER">{{ Role.DESIGNER }}</option>
-                <option :value="Role.PRODUCER">{{ Role.PRODUCER }}</option>
-                <option :value="Role.SALER">{{ Role.SALER }}</option>
-            </select>
-        </div>
-        <button @click="handleGrant">Grant Role</button>
     </div>
 </template>
+
+<style scoped>
+.badge {
+    color: #9567ea;
+}
+</style>

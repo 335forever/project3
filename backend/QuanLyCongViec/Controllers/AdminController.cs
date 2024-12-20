@@ -53,10 +53,26 @@ public class AdminController : ControllerBase
         return Ok(new { message = "Role granted successfully" });
     }
 
-    [HttpGet("roleMembership/{roleName}")]
+    [HttpGet("roleMembership/{roleName?}")]
     [Authorize(Roles = "Admin")]
-    public async Task<ActionResult<List<User>>> GetRoleList(string roleName)
+    public async Task<ActionResult<List<User>>> GetRoleList(string? roleName)
     {
+        if (string.IsNullOrEmpty(roleName))
+        {
+            var allUsers = _userManager.Users.ToList();
+            var usersWithoutRoles = new List<User>();
+
+            foreach (var user in allUsers)
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+                if (!roles.Any())
+                {
+                    usersWithoutRoles.Add(user);
+                }
+            }
+
+            return usersWithoutRoles;
+        }
         if (roleName == "Admin") return BadRequest(new { message = "Admin information can't be retrieved" });
         var role = await _roleManager.FindByNameAsync(roleName);
         if (role == null)

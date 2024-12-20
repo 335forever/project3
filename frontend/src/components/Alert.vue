@@ -32,7 +32,7 @@ const typeColor = computed(() => {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 1000;
+    z-index: 9999;
     min-width: 300px;
     max-width: 400px;
 }

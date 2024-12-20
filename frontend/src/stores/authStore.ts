@@ -27,26 +27,38 @@ export const useAuthStore = defineStore("auth", {
                 const decodedToken: DecodedToken = jwtDecode(data.token);
                 if (decodedToken) {
                     localStorage.setItem("token", data.token);
-                    await this.fetchUser();
+                    const result = await this.fetchUser();
+                    if (!result.success)
+                        return { success: false, message: result.message };
                     return { success: true, message: "Login successful" };
                 }
                 throw new Error("Failed to decode token");
             } catch (error: any) {
-                this.error = error.message ?? "Login failed";
+                this.error = error.response.data.message ?? "Login failed";
                 return { success: false, message: this.error };
             } finally {
                 this.loading = false;
             }
         },
-        async fetchUser() {
+        async fetchUser(): Promise<TResponse> {
             try {
                 const user = await AuthService.fetchUser();
+                if (!user.role)
+                    return {
+                        success: false,
+                        message: "Wait admin grant your role",
+                    };
                 this.user = user;
-                return true;
-            } catch (error) {
-                console.error("Failed to fetch user", error);
+                return {
+                    success: true,
+                    message: "fetch user successfully",
+                };
+            } catch (error: any) {
                 this.logout();
-                return false;
+                return {
+                    success: false,
+                    message: error ?? "Wait admin grant your role",
+                };
             }
         },
         logout() {

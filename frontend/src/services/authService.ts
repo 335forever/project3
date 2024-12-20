@@ -1,3 +1,4 @@
+import type { User } from "@/type/auth";
 import apiClient from "./apiClient";
 
 export const AuthService = {
@@ -5,7 +6,7 @@ export const AuthService = {
         const response = await apiClient.post("/auth/login", credentials);
         return response.data;
     },
-    async fetchUser() {
+    async fetchUser() : Promise<User> {
         const response = await apiClient.get("/auth/me");
         return response.data;
     },

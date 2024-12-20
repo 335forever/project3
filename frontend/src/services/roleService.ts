@@ -7,9 +7,9 @@ export const RoleService = {
         const response = await apiClient.post(`/admin/grant/${id}/${roleName}`);
         return response.data;
     },
-    async getRoleMembership(roleName: Role): Promise<User[]> {
+    async getRoleMembership(roleName: Role | null): Promise<User[]> {
         const response = await apiClient.get(
-            `/admin/roleMembership/${roleName}`
+            `/admin/roleMembership/${roleName ?? ""}`
         );
         return response.data;
     },

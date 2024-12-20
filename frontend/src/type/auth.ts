@@ -11,7 +11,7 @@ export type User = {
     emailConfirmed: boolean;
     phoneNumber: string | null;
     phoneNumberConfirmed: boolean;
-    role: Role;
+    role: Role | null;
 };
 
 export enum Role {

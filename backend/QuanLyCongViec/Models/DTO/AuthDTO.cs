@@ -24,7 +24,7 @@ namespace QuanLyCongViec.Models.DTO
             EmailConfirmed = UserData.EmailConfirmed;
             PhoneNumber = UserData.PhoneNumber;
             PhoneNumberConfirmed = UserData.PhoneNumberConfirmed;
-            Role = _Roles.First();
+            Role = _Roles.Any() ? _Roles.First() : null;
         }
         public Guid Id {  get; set; }
         public string? UserName { get; set; }
@@ -38,7 +38,7 @@ namespace QuanLyCongViec.Models.DTO
         public bool EmailConfirmed { get; set; }
         public string? PhoneNumber { get; set; }
         public bool PhoneNumberConfirmed { get; set; }
-        public string Role { get; set; }
+        public string? Role { get; set; }
     }
 
     public class RegisterModel
